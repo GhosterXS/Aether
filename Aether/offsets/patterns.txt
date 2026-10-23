@@ -1,0 +1,135 @@
+# Aether signature overrides (compiled into the DLL by BUILD.bat).
+#
+# When CS2 updates and Settings -> Game update -> Check signatures shows a name in red, find a new signature for it
+# (UnknownCheats thread, a pattern list, ...) and write it here:
+#
+#     UseTool = 48 85 D2 0F 84 ? ? ? ? 53 41 57 48 83 EC 28 49 8B D8 4C 8B F9 48 85 DB 0F 84
+#
+# A line copied from a C++ patterns header works too:
+#     inline constexpr const char* UseTool = "48 85 D2 0F 84 ? ...";
+#
+# Use the names below exactly. Remove the # in front of a line to use it. ? = any byte.
+# Lines starting with # are ignored. An empty file = use the built-in signatures.
+
+# FrameStageNotify = 48 89 5C 24 ? 48 89 6C 24 ? 57 48 83 EC 40 48 8B F9 33 ED
+#     (client.dll, used for: everything)
+# UseTool = 48 85 D2 0F 84 ? ? ? ? 53 41 57 48 83 EC 28 49 8B D8 4C 8B F9 48 85 DB 0F 84
+#     (client.dll, used for: case opening)
+# InventoryManager = 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 91 ? ? ? ? B8
+#     (client.dll, used for: case opening)
+# CreateEconItem = 48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85
+#     (client.dll, used for: case opening)
+# CreateBaseTypeCache = 40 ? 48 83 EC ? 4C 8B 49 ? 44 8B D2
+#     (client.dll, used for: case opening)
+# CrateUnlockNotify = 4C 8B 35 ? ? ? ? 44 8B 60 38 4D 85 F6 74 ? 49 8B 06 B9 30 00 00 00 4C 8B B8 ? ? ? ? E8 ? ? ? ? 48 8B F0 48 85 C0 74 ? 0F B7 0D ? ? ? ? 48 8B D7 66 89 48 08 48 B8 00 00 00 00 FF FF FF FF 48 89 46 0C 48 8D 4E 20 48 8D 05 ? ? ? ? 44 89 66 28 48 89 06 33 C0 48 89 46 18 48 89 46 20 E8
+#     (client.dll, used for: case opening)
+# UiEngineRunFrame = 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 81 EC ? ? ? ? 45 33 F6 48 8B F1 44 89 B1 ? ? ? ? 0F 31
+#     (panorama.dll, used for: case opening)
+# UiEnginePointer = 48 89 78 ? 48 89 0D ? ? ? ?
+#     (client.dll, used for: case opening)
+# MainMenuPanelPointer = 48 83 EC 28 48 8B 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8B 48 08 48 8B 01 FF 90 78 01 00 00 48 85 C0
+#     (client.dll, used for: case opening)
+# RunPanoramaScript = 4C 89 4C 24 ? 4C 89 44 24 ? 48 89 54 24 ? 55 53 56 57 41 54 41 56
+#     (panorama.dll, used for: case opening)
+# ChatPrint = 4C 89 4C 24 20 53 56 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8B 0D ? ? ? ? 41 8B D8 48 8B F2
+#     (client.dll, used for: drop message in chat)
+# StickerPlacement = 40 84 F6 75 ? 8B 05 ? ? ? ? 48 8B 4C 24 ? 83 49 10 04 89 41 28 48 8B 44 24 ? F3 0F 10 05 ? ? ? ? 81 48 10 80 00 00 00 F3 0F 11 40 3C 48 8B 44 24 ? F3 0F 10 0D ? ? ? ? 81 48 10 00 01 00 00 F3 0F 11 48 40 0F 57 C9 F3 0F 10 05 ? ? ? ? 48 8B 44 24 ? 83 48 10 20 F3 0F 11 40 34 F3 0F 10 05 ? ? ? ? 0F 2F C1
+#     (client.dll, used for: stickers on Aether guns)
+# ItemViewById = 40 53 48 83 EC 20 48 8B D9 48 8B 0D ? ? ? ? 48 85 C9 74 ? 48 8B D3 E8 ? ? ? ? 48 85 C0 75 ? 48 B8 00 00 00 00 00 00 00 F0
+#     (client.dll, used for: stickers on Aether guns)
+# KeychainPlacement = F3 0F 10 05 ? ? ? ? 48 8B 0D ? ? ? ? 48 81 C1 A0 00 00 00 81 48 10 80 00 00 00 F3 0F 11 40 3C 48 8B 44 24 ? F3 0F 10 0D ? ? ? ? 81 48 10 00 01 00 00 F3 0F 11 48 40 48 8B 44 24 ? F3 0F 10 05 ? ? ? ? 81 48 10 00 02 00 00 F3 0F 11 40 44
+#     (client.dll, used for: charms on Aether guns)
+# PatchSlot = 48 8D 54 24 ? 8B 05 ? ? ? ? 83 49 10 04 89 41 28 48 8B 0D ? ? ? ? 48 81 C1 A0 00 00 00
+#     (client.dll, used for: patches on Aether agents)
+# CreatePreviewItem = 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 B8 FF 7F FF 7F FF 7F FF 7F 48 8B FA 48 39 05 ? ? ? ? 48 8B F1 75 1A
+#     (client.dll, used for: 3D preview)
+# PreviewBlockCtor = 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B C2 33 F6 48 83 C8 02 48 8B F9 45 84 C0 48 8B DA 48 0F 44 C2 48 89 41 08 48 8D 05 ? ? ? ? 48 89 01 33 C0 48 89 41 10 48 83 C1 18 E8 ? ? ? ? 48 89 5F 30
+#     (client.dll, used for: 3D preview)
+# PreviewParseFromArray = 48 89 5C 24 10 48 89 74 24 18 55 57 41 56 48 8D 6C 24 B9 48 81 EC B0 00 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 37 48 8B 01 48 8B DA 48 8B F9 49 63 F0 FF 50 18
+#     (client.dll, used for: 3D preview)
+# PreviewBlockDtor = 48 89 5C 24 10 57 48 83 EC 20 48 8D 05 ? ? ? ? 48 8B D9 48 89 01 F6 41 08 01 74 ? 48 83 C1 08 E8 ? ? ? ? EB ? 48 8B 41 08 48 83 E0 FC 48 85 C0 75 ? 48 8D 4B 18 E8 ? ? ? ? 48 83 7B 40 00 48 8D 4B 30
+#     (client.dll, used for: 3D preview)
+# PreviewStickerInModelPanel = 48 85 D2 0F 84 ? ? ? ? 48 89 6C 24 18 57 48 83 EC 40 48 8B CA 48 89 5C 24 50 49 8B F9
+#     (client.dll, used for: 3D preview)
+# PreviewPlayerConstructor = 48 89 5C 24 10 57 48 83 EC 20 48 8B F9 E8 ? ? ? ? C7 87 ? ? 00 00 00 00 80 3F 48 8D 05 ? ? ? ? 48 89 07
+#     (client.dll, used for: 3D preview)
+# HudPanelPointer = 48 89 35 ? ? ? ? E8 ? ? ? ? 48 85
+#     (client.dll, used for: 3D preview)
+# PanoramaCreateRenderTargets = 4C 8B DC 55 57 41 55 49 8D AB 68 FD FF FF 48 81 EC 80 03 00 00 48 83 B9 98 00 00 00 00 48 8B F9 0F 85 ? ? ? ?
+#     (panorama.dll, used for: 3D preview)
+# PanoramaAcquireLayerRt = 40 53 56 48 83 EC 78 48 FF 81 A0 00 00 00 48 8D B1 D0 02 00 00 48 89 7C 24 68 48 8B F9
+#     (panorama.dll, used for: 3D preview)
+# GetLocalPawn = 48 83 EC 28 83 F9 FF 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 10 03 00 00 8B 08 48 63 C1 4C 8D 05 ? ? ? ? 33 D2 4D 8B 04 C0 4D 85 C0 74 ? 45 8B 80 BC 06 00 00
+#     (client.dll, used for: everything)
+# GetBaseEntity = 4C 8D 49 10 81 FA FE 7F 00 00 ? ? 8B CA C1 F9 09 83 F9 3F ? ? 48 63 C1 4D
+#     (client.dll, used for: skins in matches)
+# RegenerateSkins = 48 83 EC ? E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 10
+#     (client.dll, used for: skins in matches)
+# BuildModernSkin = 48 85 C9 0F 84 ? ? ? ? 48 8B C4 48 89 50 10
+#     (client.dll, used for: skins in matches)
+# ReleaseCompositeMaterials = 48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC 20 44 0F B6 F2 48 8B F9 E8 ? ? ? ? 45 33 FF 48 8B F0
+#     (client.dll, used for: skins in matches)
+# KnifeUpdateSubclass = 4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 41
+#     (client.dll, used for: knives in matches)
+# AnimGraphRebuild = 40 55 56 48 83 EC 28 4C 89 74 24 58 48 8B F1 80 FA FF 75 04 0F B6 51 18
+#     (client.dll, used for: knives in matches)
+# GloveCreatePaintKit = 48 89 5C 24 ? 56 48 83 EC ? 48 8B 01 FF 50
+#     (client.dll, used for: gloves in matches)
+# GloveSetBodyGroup = E8 ? ? ? ? EB 0C 48 8B CF
+#     (client.dll, used for: gloves in matches)
+# SetMeshGroupMask = 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99 ? ? ? ? 48 8B 71
+#     (client.dll, used for: knives / gloves in matches)
+# AgentSetModel = 40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24
+#     (client.dll, used for: knives / gloves in matches)
+# AgentPrecache = 40 53 55 57 48 81 EC ? ? ? ? 48 8B 01 49 8B E8 48 8B FA
+#     (resourcesystem.dll, used for: knives / gloves in matches)
+# AddKeyChainEntity = 44 88 44 24 ? 48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24
+#     (client.dll, used for: charms)
+# FindHudKeychainAddon = 48 89 5C 24 18 57 41 56 41 57 48 83 EC 20 49 8B F9 45 8B F0 45 33 C9 4C 8B FA 48 8B D9 E8
+#     (client.dll, used for: charms)
+# RemoveHudKeychainAddon = 48 83 EC 28 48 85 C9 0F 84 ? ? ? ? 48 8B 51 10 8B 42 30 0F BA E0 0B 73 07 C1 E8
+#     (client.dll, used for: charms)
+# RemoveKeychainModule = 48 83 EC 28 48 85 C9 74 ? 48 8B 51 10 8B 42 30 0F BA E0 0B 73 ? C1 E8 06
+#     (client.dll, used for: charms)
+# FindHudElement = 40 53 48 83 EC ? 48 8B 05 ? ? ? ? 48 8B D9 48 85 C0 74 ? 48 89 5C 24
+#     (client.dll, used for: HUD weapon icons)
+# ClearHudWeapon = E8 ? ? ? ? 8B F8 C6 84 24
+#     (client.dll, used for: HUD weapon icons)
+# InputPointer = 48 8B 0D ? ? ? ? 8B D3 E8 ? ? ? ? ? ? ? ? F2 0F 11 45
+#     (client.dll, used for: menu mouse)
+# GetFov = 40 53 48 83 EC ? 48 8B D9 E8 ? ? ? ? 48 85 C0 74 ? 48 8B C8 48 83 C4 ? 5B E9
+#     (client.dll, used for: FOV changer)
+# ShouldDrawCrosshair = 48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 05 ? ? ? ? 80 78 58 00 74 ? B0 01
+#     (client.dll, used for: crosshair on snipers)
+# ButtonRegistration = 45 33 C0 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 89 05 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 05
+#     (client.dll, used for: bunnyhop)
+# RasteriseSvg = 48 8B C4 48 89 58 ? 48 89 70 ? 48 89 78 ? 55 41 54 41 55 41 56 41 57 48 8D 68 ? 48 81 EC ? ? ? ? 4C 8B AD
+#     (panorama.dll, used for: menu images)
+# KnifeInspect = 40 53 48 83 EC 40 48 8B 01 48 8B D9 FF 90 F0 0C 00 00 84 C0 75 ? 48 83 C4 40 5B C3
+#     (client.dll, used for: knife inspect fix)
+# KnifeReflect = 40 55 53 56 57 41 57 48 8D 6C 24 C9 48 81 EC A0 00 00 00 48 8D 05 ? ? ? ? 48 C7 45 CF B5 00 00 00 48 89 45 C7 4C 8D 45 E7 0F 10 45 C7 48 8D 05 ? ? ? ?
+#     (client.dll, used for: knife inspect fix)
+# AgentVoiceStart = 48 8B C4 55 53 56 57 41 54 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 44 8B A5 ? ? ? ? 33 DB 4C 89 68
+#     (client.dll, used for: agent voice lines)
+# AgentRadioText = 48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 81 A5 ? ? ? ? FF FF 0F FF 33 F6 8B 5A 6C 48 8B FA 48 8B 52 60 4C 8B E9
+#     (client.dll, used for: agent voice lines (radio))
+# AgentRulesLevelInit = 48 89 5C 24 ? 48 89 6C 24 ? 56 41 54 41 55 41 56 41 57 48 81 EC 10 01 00 00
+#     (client.dll, used for: agent voice lines)
+# AgentRulesLevelShutdown = 48 89 5C 24 ? 55 48 83 EC 20 8B 41 ? 48 8B D9 83 E8 01 48 89 7C 24 ? 48 63 F8 BD FF FF FF FF
+#     (client.dll, used for: agent voice lines)
+# AgentRulesDump = 48 83 EC 38 48 8B 0D ? ? ? ? 48 85 C9 74 ? 48 8B 01 FF 50 10 EB ? 33 C0 4C 8D 0D
+#     (client.dll, used for: agent voice lines)
+# AgentWheelTable = 48 8D 3D ? ? ? ? 48 0F 45 F0 0F 1F 40 00 48 8B 17 48 8B CE FF 15 ? ? ? ? 85 C0 74 ? 48 83 C7 20 48 8D 05 ? ? ? ? 48 3B F8 75
+#     (client.dll, used for: agent voice lines (radio))
+# AgentWeaponRegistry = 48 8B C4 55 48 8D 68 E8 48 81 EC 10 01 00 00 48 8B 0D ? ? ? ? 4C 8D 44 24 30
+#     (client.dll, used for: agent voice lines (radio))
+
+# --- updated 2026-10-15 (UC OverrideView + softer OnRenderStart / CalcViewModel) ---
+OverrideView = 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B FA E8
+OverrideViewAlt = 48 89 5C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 01
+CalcViewModel = 40 55 53 56 41 56 41 57 48 8B EC 48 83
+OnRenderStartB = 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 4C 8B F1 48 8D 94 24
+OnRenderStart = 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 4C 8B F1 48 8D 94 24
+
+# GhosterXS CS2-SDK build 14191 (2026-10-15)
+OverrideView=40 53 57 48 83 EC 58 48 8B FA E8
